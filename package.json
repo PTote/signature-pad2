@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy-git-pages": "ng deploy --base-href=https://PTote.github.io/signature-pad2/"
   },
   "private": true,
   "dependencies": {
