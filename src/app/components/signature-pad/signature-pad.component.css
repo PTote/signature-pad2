@@ -1,0 +1,16 @@
+.signature-pad-container{
+display: flex;
+justify-content: center;
+}
+
+#signature_pad{
+  border: 2px black dashed;
+  display: block;
+}
+
+button{
+  margin: 5px 5px;
+  width: 100px;
+}
+
+

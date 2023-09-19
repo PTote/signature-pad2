@@ -1,0 +1,12 @@
+.signature-pad-component{
+  border: 1px black solid;
+}
+
+.buttons-container{
+  text-align: center;
+}
+
+.buttons-container button{
+ margin: 5px 5px;
+ width: 120px;
+}
