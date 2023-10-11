@@ -1,6 +1,15 @@
 <div class="signature-pad-container">
-    <canvas #canvas id="signature_pad"
+  <div class="signature-pad">
+    <canvas #canvas id="signature_pad" class="signature-pad__canvas"
     (drop)="onDrop($event)"
     (dragover)="onDragOver($event)"
     ></canvas>
+  </div>
+  <div class="buttons">
+    <ng-content select=".buttons__btn-clear"></ng-content>
+    <ng-content select=".buttons__btn-download-png"></ng-content>
+    <ng-content select=".buttons__btn-download-jpeg"></ng-content>
+    <ng-content select=".buttons__btn-download-svg"></ng-content>
+  </div>
+
 </div>

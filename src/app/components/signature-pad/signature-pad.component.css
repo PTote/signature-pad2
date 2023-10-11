@@ -1,16 +1,23 @@
-.signature-pad-container{
-display: flex;
-justify-content: center;
+.signature-pad-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-#signature_pad{
-  border: 2px black dashed;
-  display: block;
+.signature-pad{
+  margin-bottom: 18px;
 }
 
-button{
+.signature-pad__canvas {
+  border-radius: 10px;
+  border: 1px #0a4989 solid;
+  background: rgba(122, 159, 193, 0.2);
+}
+
+.buttons {
+  text-align: end;
+}
+
+.buttons__btn-actions {
   margin: 5px 5px;
-  width: 100px;
 }
-
-
