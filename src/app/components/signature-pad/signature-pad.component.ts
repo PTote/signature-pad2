@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import SignaturePad from 'signature_pad';
 
 @Component({
@@ -6,7 +6,8 @@ import SignaturePad from 'signature_pad';
   templateUrl: './signature-pad.component.html',
   styleUrls: ['./signature-pad.component.css']
 })
-export class SignaturePadComponent   {
+export class SignaturePadComponent {
+
 
   @ViewChild('canvas') private canvas!: ElementRef;
   private signaturePad!: SignaturePad;
@@ -15,6 +16,9 @@ export class SignaturePadComponent   {
   private screenWidth!: number;
   private screenHeight!: number;
   private validateSignaturePadEmpty: boolean = true;
+
+  @Input() externalBase64: string  = ''
+  @Input() useExternalBase64: boolean = false;
 
   @Output() signaturePadEmpty = new EventEmitter<boolean>();
 
@@ -35,6 +39,10 @@ export class SignaturePadComponent   {
     this.screenHeight = window.innerHeight;
     this.resizeCanvas();
     this.signaturePadEmpty.emit(this.validateSignaturePadEmpty);
+
+    if(this.useExternalBase64){
+      this.showImageFromBase64();
+    }
   }
 
 
@@ -44,7 +52,10 @@ export class SignaturePadComponent   {
     const canvas = document.getElementById('signature_pad') as HTMLCanvasElement;
 
     if (canvas) {
-      this.signaturePad = new SignaturePad(canvas)
+      this.signaturePad = new SignaturePad(canvas, {
+        backgroundColor: 'rgba(255, 255, 255)',
+        penColor: 'rgb(0, 0, 0)'
+      })
     }
 
     this.signaturePad.addEventListener("beginStroke", () => {
@@ -95,6 +106,10 @@ export class SignaturePadComponent   {
 
     reader.readAsDataURL(file);
 
+  }
+
+  private showImageFromBase64(){
+    this.signaturePad.fromDataURL(this.externalBase64, { ratio: 1, width: 250, height: 250, xOffset: 100, yOffset: 15 });
   }
 
   private resizeCanvas(): void {

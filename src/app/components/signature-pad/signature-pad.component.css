@@ -11,7 +11,7 @@
 .signature-pad__canvas {
   border-radius: 10px;
   border: 1px #0a4989 solid;
-  background: rgba(122, 159, 193, 0.2);
+  /* background: rgba(122, 159, 193, 0.2); */
 }
 
 .buttons {

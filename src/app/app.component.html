@@ -1,7 +1,10 @@
 
 <div class="signature-pad-component">
-  <app-signature-pad #signaturePad (signaturePadEmpty)="handlerCanvas($event)">
+  <app-signature-pad #signaturePad (signaturePadEmpty)="handlerCanvas($event)" [useExternalBase64]="false" [externalBase64]="imageFromSettings">
     <a class="buttons__btn-clear" (click)="clearSignaturePad()">Intentar de nuevo</a>
+    <button (click)="saveSignaturePNG()" class="buttons__btn-download-png">Descargar PNG</button>
+    <button (click)="saveSignatureJPG()" class="buttons__btn-download-jpeg">Descargar JPEG</button>
+    <button (click)="saveSignatureSVG()" class="buttons__btn-download-svg">Descargar SVG</button>
   </app-signature-pad>
 
   <!-- <div class="buttons-container">
